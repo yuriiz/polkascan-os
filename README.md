@@ -93,7 +93,7 @@ from substrateinterface import SubstrateInterface
 
 substrate = SubstrateInterface(
     url='ws://127.0.0.1:9944',
-    type_registry_preset='substrate-node-template',
+    type_registry_preset='default',
     type_registry=load_type_registry_file('harvester/app/type_registry/custom_types.json'),
 )
 
@@ -106,4 +106,11 @@ print('Extrinsincs:', json.dumps([e.value for e in extrinsics], indent=4))
 events = substrate.get_events(block_hash)
 
 print("Events:", json.dumps([e.value for e in events], indent=4))
+```
+
+One can use the `harvester/query.py` file. It can be run with:
+```bash
+cd harvester
+python -m pip install -r requirements.txt
+python query.py
 ```
